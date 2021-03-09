@@ -4,20 +4,40 @@
 <meta charset="UTF-8"/>
 <title>Marcar consulta</title>
 <link rel="stylesheet" href="main.css">
-<script type="text/javascript" src="marcar-consulta.js" charset="iso-8859-0"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="images/logo.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="marcar-consulta.html">Marcar consulta</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Pesquise" aria-label="Pesquise">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enviar</button>
+          </form>
+        </div>
+    </nav>
+    <img class="banner" src="images/banner.jpeg">
     <div class="main-content">
-        <div>
-        <nav class="vertical-menu">
-            <a href="index.html">Home</a>
-            <a href="marcar-consulta.html">Marcar consulta</a>
-        </nav>            
+        <div>          
         <h2>Marcar Consulta</h2>
         <form>
             <div class="form-group">
             <label>Selecione uma especialidade</label>
-            <select id="consultEspeciality" name="consultEspeciality">
+            <select id="consultEspeciality" name="consultEspeciality"  class="form-control">
                 <option value="0" selected="selected">Selecione uma especialidade</option>
                 <option value="ACUPUNTURA">ACUPUNTURA</option>
                 <option value="CARDIOLOGIA">CARDIOLOGIA</option>
@@ -36,7 +56,7 @@
             </div>
             <div class="form-group">
             <label>Selecione o médico</label>
-            <select id="consultDoctor" name="consultDoctor">	
+            <select id="consultDoctor" name="consultDoctor"  class="form-control">	
                 <option value="0" selected="selected">Selecione o médico</option>
                 <option value="PABLO CARDOSO">PABLO CARDOSO</option>
                 <option value="ANA SILVIA">ANA SILVIA</option>
@@ -54,10 +74,10 @@
             </div>
             <div class="form-group">
                 <label for="consultDate">Informe data e hora:</label>
-                <input type="datetime-local" id="consultDate" name="consultDate">
+                <input type="datetime-local" id="consultDate" name="consultDate"  class="form-control">
             </div>   
             <div class="form-group-button">
-                <button type="button" id="nexStep">Continuar</button>                
+                <button type="button" id="nexStep" class="btn btn-primary">Continuar</button>                
             </div>
         </form>
         </div>
