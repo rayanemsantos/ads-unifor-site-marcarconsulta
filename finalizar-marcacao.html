@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Marcar consulta</title>
+<link rel="stylesheet" href="main.css">
+<script type="text/javascript" src="marcar-consulta.js" charset="iso-8859-0"></script>
+</head>
+<body>
+    <div class="main-content">
+        <div>
+        <div class="vertical-menu">
+            <a href="index.html">Home</a>
+            <a href="marcar-consulta.html">Marcar consulta</a>
+        </div>            
+        <h2>Marcar Consulta</h2>
+        <table>
+            <tr>
+              <th>Especialidade</th>
+              <th>Médico(a)</th>
+              <th>Data</th>
+            </tr>
+            <tr>
+              <td id="especialy"></td>
+              <td id="doctor"></td>
+              <td id="consultDate"></td>
+            </tr>
+          </table>        
+        <form>
+            <div class="form-group">
+                <label for="fname">Nome:</label>
+                <input type="text" id="fname" name="fname">
+            </div>
+            <div class="form-group">
+                <label for="lname">Sobrenome:</label>
+                <input type="text" id="lname" name="lname">
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group-button">
+                <a type="button" id="send" href="">Confirmar e enviar</a>                
+            </div>
+          </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    
+    var especialy = url.searchParams.get("especialy");
+    document.getElementById("especialy").innerHTML = especialy;
+    var doctor = url.searchParams.get("doctor");
+    document.getElementById("doctor").innerHTML = doctor;
+    var consultDate = url.searchParams.get("consultDate");
+    document.getElementById("consultDate").innerHTML = consultDate;
+
+    document.getElementById("send").onclick = function (ev) {
+
+        var fname = document.getElementById("fname").value
+        var lname = document.getElementById("lname").value
+        var email = document.getElementById("email").value        
+        console.log(fname, lname, email)
+        ev.preventDefault();
+        if(fname && lname && email){
+            var formattedBody = "Especialidade: " + especialy + "\n\n" + "Médico: " + doctor + "\n\n" + "Data: " + consultDate + "\n\n";
+            location.href = "mailto:seuemail@gmail.com?subject=Consulta marcada com sucesso!&body=" + encodeURIComponent(formattedBody);
+            location.href = "index.html"
+        } else {
+            alert("Preencha todos os campos antes de finalizar.")
+        }        
+    };
+</script>

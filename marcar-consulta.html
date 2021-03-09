@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Marcar consulta</title>
+<link rel="stylesheet" href="main.css">
+<script type="text/javascript" src="marcar-consulta.js" charset="iso-8859-0"></script>
+</head>
+<body>
+    <div class="main-content">
+        <div>
+        <div class="vertical-menu">
+            <a href="index.html">Home</a>
+            <a href="marcar-consulta.html">Marcar consulta</a>
+        </div>            
+        <h2>Marcar Consulta</h2>
+        <form>
+            <div class="form-group">
+            <label>Selecione uma especialidade</label>
+            <select id="consultEspeciality" name="consultEspeciality">
+                <option value="0" selected="selected">Selecione uma especialidade</option>
+                <option value="ACUPUNTURA">ACUPUNTURA</option>
+                <option value="CARDIOLOGIA">CARDIOLOGIA</option>
+                <option value="CLINICO GERAL">CLINICO GERAL</option>
+                <option value="DERMATOLOGIA CLINICA E CIRURGICA">DERMATOLOGIA CLINICA E CIRURGICA</option>
+                <option value="ENDOCRINOLOGIA/METABOLOGIA">ENDOCRINOLOGIA/METABOLOGIA</option>
+                <option value="ENFERMAGEM CIRURGIA BARIATRICA">ENFERMAGEM CIRURGIA BARIATRICA</option>
+                <option value="FONOAUDIOLOGIA">FONOAUDIOLOGIA</option>
+                <option value="GINECOLOGIA CLINICA">GINECOLOGIA CLINICA</option>
+                <option value="GINECOLOGIA E OBSTETRICIA">GINECOLOGIA E OBSTETRICIA</option>
+                <option value="NUTRICAO">NUTRICAO</option>
+                <option value="OFTALMOLOGIA">OFTALMOLOGIA</option>
+                <option value="OTORRINOLARINGOLOGIA">OTORRINOLARINGOLOGIA</option>
+                <option value="PSICOLOGIA">PSICOLOGIA</option>
+            </select>   
+            </div>
+            <div class="form-group">
+            <label>Selecione o médico</label>
+            <select id="consultDoctor" name="consultDoctor">	
+                <option value="0" selected="selected">Selecione o médico</option>
+                <option value="PABLO CARDOSO">PABLO CARDOSO</option>
+                <option value="ANA SILVIA">ANA SILVIA</option>
+                <option value="JOSÉ ALBERTO">JOSÉ ALBERTO</option>
+                <option value="ANGELO SANTOS">ANGELO SANTOS</option>
+                <option value="GUSTAVO REGIS">GUSTAVO REGIS</option>
+                <option value="MARLA SILVA">MARLA SILVA</option>
+                <option value="FRANCISCO DA COSTA">FRANCISCO DA COSTA</option>
+                <option value="PEDRO PESSOA">PEDRO PESSOA</option>
+                <option value="CAROLINA CAMPOS">CAROLINA CAMPOS</option>
+                <option value="ENIFFER CARDOSO">JENIFFER CARDOSO</option>
+                <option value="LUANA GOLÇAVES">LUANA GOLÇAVES</option>
+                <option value="JEFFERSON BRUNO">JEFFERSON BRUNO</option>
+            </select>   
+            </div>
+            <div class="form-group">
+                <label for="consultDate">Informe data e hora:</label>
+                <input type="datetime-local" id="consultDate" name="consultDate">
+            </div>   
+            <div class="form-group-button">
+                <button type="button" id="nexStep">Continuar</button>                
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById("nexStep").onclick = function () {
+        var consultEspeciality = document.getElementById("consultEspeciality").value
+        var consultDoctor = document.getElementById("consultDoctor").value
+        var consultDate = document.getElementById("consultDate").value
+        if(consultEspeciality && consultDoctor && consultDate){
+            location.href = "finalizar-marcacao.html?especialy=" + consultEspeciality + "&doctor=" + consultDoctor + "&consultDate=" + consultDate;
+        } else {
+            alert("Preencha todos os campos antes de continuar.")
+        }
+    };
+</script>
